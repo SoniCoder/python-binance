@@ -266,7 +266,7 @@ class BaseClient:
 
         if signed:
             # generate signature
-            kwargs['data']['timestamp'] = int(time.time() * 1000 + self.timestamp_offset)
+            kwargs['data']['timestamp'] = int(time.time() * 1000 + self.timestamp_offset - 1000)
             kwargs['data']['signature'] = self._generate_signature(kwargs['data'])
 
         # sort get and post params to match signature order
